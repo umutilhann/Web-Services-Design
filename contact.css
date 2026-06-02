@@ -1,0 +1,225 @@
+/* ================================================================
+   contact.css — Contact Page Specific Styles (Task 19)
+   A deliberately different visual style from the main stylesheet.
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   Contact page hero — different accent strip style
+   ---------------------------------------------------------------- */
+.contact-hero {
+  background: linear-gradient(160deg, #0a0f1e 0%, #141b30 60%, #1a0f2e 100%);
+  border-bottom: 3px solid #ff4081;
+}
+
+/* ----------------------------------------------------------------
+   Contact layout — two-column grid
+   ---------------------------------------------------------------- */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Contact info card
+   ---------------------------------------------------------------- */
+.contact-info-section {
+  grid-column: 1;
+}
+
+.contact-card {
+  background: linear-gradient(135deg, #141720, #1c2030);
+  border: 1px solid rgba(255,64,129,0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(255,64,129,0.1);
+}
+
+.contact-card h2 {
+  font-size: 1.4rem;
+  color: #ff4081;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255,64,129,0.25);
+}
+
+.contact-img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255,64,129,0.4);
+  box-shadow: 0 4px 16px rgba(255,64,129,0.2);
+}
+
+.contact-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.contact-details li {
+  color: #c0c8d8;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,64,129,0.06);
+  border-radius: 6px;
+  border-left: 3px solid #ff4081;
+}
+
+/* ----------------------------------------------------------------
+   Form section
+   ---------------------------------------------------------------- */
+.form-section {
+  grid-column: 1;
+}
+
+@media (min-width: 768px) {
+  .form-section {
+    grid-column: 2;
+  }
+}
+
+.form-title {
+  font-size: 1.4rem;
+  color: #ff4081;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255,64,129,0.25);
+}
+
+/* ----------------------------------------------------------------
+   Form elements
+   ---------------------------------------------------------------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background: linear-gradient(135deg, #141720, #1c2030);
+  border: 1px solid rgba(255,64,129,0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label,
+.group-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #ff4081;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-group input[type="text"] {
+  padding: 0.65rem 0.9rem;
+  background: rgba(255,64,129,0.06);
+  border: 1px solid rgba(255,64,129,0.3);
+  border-radius: 6px;
+  color: #e0e6f0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: #ff4081;
+  box-shadow: 0 0 0 3px rgba(255,64,129,0.15);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #c0c8d8;
+  font-size: 0.92rem;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+  background: rgba(255,64,129,0.08);
+}
+
+.radio-label input,
+.checkbox-label input {
+  accent-color: #ff4081;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Submit and reset buttons */
+.form-buttons {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  padding: 0.7rem 1.6rem;
+  background: #ff4081;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
+}
+
+.btn-submit:hover {
+  background: #e0306a;
+  transform: translateY(-2px);
+}
+
+.btn-reset {
+  padding: 0.7rem 1.4rem;
+  background: transparent;
+  border: 1px solid rgba(255,64,129,0.4);
+  border-radius: 6px;
+  color: #c0c8d8;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.btn-reset:hover {
+  border-color: #ff4081;
+  color: #ff4081;
+}

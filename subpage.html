@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS World | Topics</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body id="top">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">&lt;CS/&gt;</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <!-- .active on current page (Task 12) -->
+      <li><a href="subpage.html" class="active">Topics</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="theme-btns">
+      <button onclick="setDark()" class="btn-theme">🌙 Dark</button>
+      <button onclick="setLight()" class="btn-theme">☀️ Light</button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-hero">
+    <h1 class="page-title">CS <span class="accent">Topics</span></h1>
+    <p class="page-sub">Core areas every computer scientist should know</p>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container" id="wrapper">
+
+    <!-- ===== Task 5: Two paragraphs, each with its own heading ===== -->
+
+    <!-- Paragraph 1 with h2 heading -->
+    <section class="section">
+      <h2 class="section-title">Algorithms &amp; Complexity</h2>
+      <!-- first-letter pseudo-element applied via CSS (Task 15) -->
+      <p>
+        An algorithm is a finite sequence of well-defined instructions designed to solve a specific problem
+        or perform a computation. The study of algorithms is central to computer science because it determines
+        whether a problem can be solved at all, and if so, how efficiently. Sorting, searching, graph traversal,
+        and dynamic programming are foundational algorithm families that appear across nearly every real-world
+        software system. Understanding Big-O notation lets us compare algorithms objectively and choose the
+        most appropriate one for a given data size and constraint.
+      </p>
+
+      <!-- Paragraph 2 with h3 heading -->
+      <h3 class="sub-title">Data Structures</h3>
+      <p>
+        Data structures are the building blocks of efficient software. Arrays, linked lists, stacks, queues,
+        trees, heaps, hash tables, and graphs each offer different trade-offs between insertion speed, lookup
+        time, memory usage, and traversal complexity. Choosing the wrong data structure can turn a fast
+        algorithm into a slow one; choosing the right one can reduce execution time by orders of magnitude.
+        Mastery of data structures separates a good programmer from an exceptional software engineer.
+      </p>
+    </section>
+
+    <!-- ===== Task 6: Numbered list ===== -->
+    <section class="section">
+      <h2 class="section-title">Top 5 CS Concepts to Master</h2>
+      <ol class="cs-list">
+        <li>Recursion and divide-and-conquer strategies</li>
+        <li>Graph algorithms: BFS, DFS, Dijkstra, A*</li>
+        <li>Dynamic programming and memoization</li>
+        <li>Object-oriented and functional programming paradigms</li>
+        <li>Operating systems: processes, threads, memory management</li>
+      </ol>
+    </section>
+
+    <!-- ===== Task 7: Table with at least 2 columns, 3 rows, one set of merged cells ===== -->
+    <section class="section table-section">
+      <h2 class="section-title">Programming Languages Overview</h2>
+      <p>A quick comparison of commonly used languages in computer science education and industry:</p>
+
+      <!-- Table is hidden on screens < 600px via media query (Task 17) -->
+      <table class="cs-table">
+        <thead>
+          <tr>
+            <!-- Merged header cell (colspan) — satisfies "joint cells" requirement -->
+            <th colspan="2" class="merged-header">Language &amp; Type</th>
+            <th>Primary Use Case</th>
+            <th>Difficulty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Python</td>
+            <td>Interpreted / Dynamic</td>
+            <td>AI, Data Science, Scripting</td>
+            <td>⭐ Beginner</td>
+          </tr>
+          <tr>
+            <td>C++</td>
+            <td>Compiled / Static</td>
+            <td>Systems, Game Dev, Embedded</td>
+            <td>⭐⭐⭐ Advanced</td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>Interpreted / Dynamic</td>
+            <td>Web Front-end &amp; Back-end</td>
+            <td>⭐⭐ Intermediate</td>
+          </tr>
+          <tr>
+            <td>Java</td>
+            <td>Compiled / Static (JVM)</td>
+            <td>Enterprise, Android, APIs</td>
+            <td>⭐⭐ Intermediate</td>
+          </tr>
+          <tr>
+            <!-- rowspan merged cell -->
+            <td rowspan="2" class="merged-cell">Functional<br/>Languages</td>
+            <td>Haskell</td>
+            <td>Research, Compilers</td>
+            <td>⭐⭐⭐⭐ Expert</td>
+          </tr>
+          <tr>
+            <td>Erlang</td>
+            <td>Distributed Systems</td>
+            <td>⭐⭐⭐ Advanced</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Task 18: Go to top (right-aligned) -->
+    <a href="#wrapper" class="right go-top">↑ go to the top of the page</a>
+    <div class="clearfix"></div>
+
+  </main>
+
+  <!-- ===== FOOTER (Task 1) ===== -->
+  <footer class="footer">
+    <p>Created by <strong>Umut ILHAN</strong> &nbsp;|&nbsp; <span id="footer-date"></span></p>
+  </footer>
+
+  <script>
+    // Footer date
+    document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-GB');
+
+    // Dark/Light mode
+    function setDark() { document.body.classList.add('dark-mode'); document.body.classList.remove('light-mode'); }
+    function setLight() { document.body.classList.add('light-mode'); document.body.classList.remove('dark-mode'); }
+  </script>
+
+</body>
+</html>

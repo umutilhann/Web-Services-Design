@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS World | Contact</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Task 19: Separate CSS file for contact page -->
+  <link rel="stylesheet" href="contact.css"/>
+</head>
+<body id="top">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">&lt;CS/&gt;</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="subpage.html">Topics</a></li>
+      <!-- .active on current page (Task 12) -->
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="theme-btns">
+      <button onclick="setDark()" class="btn-theme">🌙 Dark</button>
+      <button onclick="setLight()" class="btn-theme">☀️ Light</button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-hero contact-hero">
+    <h1 class="page-title">Get in <span class="accent">Touch</span></h1>
+    <p class="page-sub">Have a question or want to collaborate? Reach out!</p>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container contact-container" id="wrapper">
+
+    <!-- ===== Contact Info (Task 8) ===== -->
+    <section class="contact-info-section">
+      <div class="contact-card">
+        <h2>Contact Information</h2>
+
+        <!-- Image in contact page (Task 8) -->
+        <img
+          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=350&q=80"
+          alt="Coding workspace"
+          class="contact-img img-hover right"
+        />
+
+        <p>Feel free to reach out through any of the channels below. I am always happy to discuss
+        computer science topics, collaborative projects, or just have a technical conversation.</p>
+
+        <ul class="contact-details">
+          <li>📧 <strong>Email:</strong> umuilh000@pbs.edu.pl</li>
+          <li>🔗 <strong>GitHub:</strong>
+            <!-- External link (Task 8) -->
+            <a href="https://github.com/umutilhann" target="_blank" class="inline-link">umutilhann</a>
+          </li>
+          <li>🏫 <strong>University:</strong> Politechnika Bydgoska</li>
+          <li>📍 <strong>Department:</strong> Telekomunikacji, Informatyki i Elektrotechniki</li>
+        </ul>
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+
+    <!-- ===== Task 19: Contact Form with text, radio, checkbox, submit, reset ===== -->
+    <section class="form-section">
+      <h2 class="form-title">Send a Message</h2>
+
+      <!-- Note: using div instead of form tag to comply with the project's HTML structure -->
+      <div class="contact-form">
+
+        <!-- Text field -->
+        <div class="form-group">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="fname" placeholder="e.g. John Doe" />
+        </div>
+
+        <div class="form-group">
+          <label for="email-field">Email Address</label>
+          <input type="text" id="email-field" name="email" placeholder="e.g. john@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <input type="text" id="message" name="message" placeholder="Write your message here..." />
+        </div>
+
+        <!-- Radio buttons (at least 2) -->
+        <div class="form-group">
+          <label class="group-label">Topic</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="topic" value="algorithms" /> Algorithms
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="topic" value="webdev" /> Web Development
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="topic" value="ai" /> Artificial Intelligence
+            </label>
+          </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="newsletter" id="newsletter" />
+            Subscribe to CS newsletter
+          </label>
+        </div>
+
+        <!-- Submit and Reset buttons -->
+        <div class="form-buttons">
+          <input type="submit" value="Send Message" class="btn-submit" onclick="handleSubmit(event)" />
+          <input type="reset" value="Clear Form" class="btn-reset" onclick="handleReset()" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Task 18: Go to top -->
+    <a href="#wrapper" class="right go-top">↑ go to the top of the page</a>
+    <div class="clearfix"></div>
+
+  </main>
+
+  <!-- ===== FOOTER (Task 1) ===== -->
+  <footer class="footer">
+    <p>Created by <strong>Umut ILHAN</strong> &nbsp;|&nbsp; <span id="footer-date"></span></p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // --- Footer date ---
+    document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-GB');
+
+    // --- Task 20: Prompt window — ask for name, display welcome message ---
+    window.addEventListener('load', function () {
+      var userName = prompt("Welcome to CS World! What is your name?");
+      if (userName && userName.trim() !== "") {
+        alert("Hello, " + userName.trim() + "! Great to have you on the Contact page. 🖥️");
+      }
+    });
+
+    // --- Form submit handler ---
+    function handleSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('fname').value;
+      if (name) {
+        alert("Thank you, " + name + "! Your message has been sent.");
+      } else {
+        alert("Message sent! Thank you for reaching out.");
+      }
+    }
+
+    // --- Form reset handler ---
+    function handleReset() {
+      // Visual feedback on reset
+      var inputs = document.querySelectorAll('.contact-form input[type="text"]');
+      inputs.forEach(function(inp) { inp.value = ""; });
+    }
+
+    // --- Dark/Light mode ---
+    function setDark() { document.body.classList.add('dark-mode'); document.body.classList.remove('light-mode'); }
+    function setLight() { document.body.classList.add('light-mode'); document.body.classList.remove('dark-mode'); }
+  </script>
+
+</body>
+</html>

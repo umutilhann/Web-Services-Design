@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for charset and viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS World | Computer Science Hub</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body id="top">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">&lt;CS/&gt;</div>
+    <ul class="nav-links">
+      <!-- .active class marks current page -->
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="subpage.html">Topics</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <!-- Dark / Light mode toggle buttons (Task 21) -->
+    <div class="theme-btns">
+      <button onclick="setDark()" class="btn-theme" id="btn-dark">🌙 Dark</button>
+      <button onclick="setLight()" class="btn-theme" id="btn-light">☀️ Light</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="wrapper">
+    <div class="hero-content">
+      <p class="hero-label">// Welcome to</p>
+      <h1 class="hero-title">Computer<br/><span class="accent">Science</span><br/>World</h1>
+      <p class="hero-sub">Algorithms · Data Structures · Networks · AI</p>
+    </div>
+    <div class="hero-art">
+      <div class="code-block">
+        <span class="kw">def</span> <span class="fn">hello_world</span>():<br/>
+        &nbsp;&nbsp;<span class="kw">print</span>(<span class="str">"Hello, CS!"</span>)<br/>
+        <span class="fn">hello_world</span>()
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+
+    <!-- Task 2: Three paragraphs with bold & italic -->
+    <section class="section">
+      <h2 class="section-title">What is Computer Science?</h2>
+
+      <!-- Paragraph 1 -->
+      <p>
+        Computer Science is the systematic study of algorithms, data structures, programming languages,
+        and the theoretical foundations of computation. <strong>It is one of the fastest-growing fields
+        in the modern world</strong>, shaping everything from mobile apps to artificial intelligence systems.
+        At its core, computer science asks a simple question: <em>what can be computed, and how efficiently?</em>
+      </p>
+
+      <!-- Paragraph 2 -->
+      <p>
+        Programming is the art of translating human ideas into instructions that machines can execute.
+        Languages like Python, C++, Java, and JavaScript each offer different paradigms — object-oriented,
+        functional, procedural — allowing developers to choose the right tool for the task.
+        <strong>Learning to code fundamentally changes how you approach problem solving.</strong>
+        Every bug fixed and every algorithm optimized teaches you to think more precisely and creatively.
+      </p>
+
+      <!-- Paragraph 3 -->
+      <p>
+        The field of Artificial Intelligence has exploded in recent years, bringing us neural networks,
+        large language models, and autonomous systems. <em>We are living through the most significant
+        technological revolution in human history.</em> From self-driving cars to medical diagnosis,
+        CS is at the heart of innovation. Understanding its foundations is no longer optional — it is
+        essential for every scientist, engineer, and decision-maker of the 21st century.
+      </p>
+    </section>
+
+    <!-- Task 3: Image with .right class (float) -->
+    <section class="section">
+      <h2 class="section-title">Visual Computing</h2>
+      <!-- .right class floats the image to the right (Task 13) -->
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80"
+        alt="Computer circuit board close-up"
+        class="right img-hover"
+      />
+      <p>
+        Modern hardware is a marvel of engineering. A single microprocessor today contains billions
+        of transistors, each switching billions of times per second. Moore's Law predicted the doubling
+        of transistor density every two years — a trend that has held for over five decades and continues
+        to drive innovation in everything from smartphones to supercomputers.
+      </p>
+      <p>
+        Graphics Processing Units (GPUs), originally built for rendering video games, have become the
+        workhorses of machine learning. Their massively parallel architecture is perfectly suited for
+        the matrix multiplications that underpin deep learning, making them indispensable in AI research
+        and data science pipelines worldwide.
+      </p>
+      <div class="clearfix"></div>
+    </section>
+
+    <!-- Task 4: Links to two external pages -->
+    <section class="section links-section">
+      <h2 class="section-title">Useful Resources</h2>
+      <p>Explore these trusted platforms to deepen your computer science knowledge:</p>
+      <div class="ext-links">
+        <a href="https://cs50.harvard.edu" target="_blank" class="ext-link">
+          <span class="link-icon">🎓</span>
+          <span>CS50 – Harvard's Introduction to Computer Science</span>
+        </a>
+        <a href="https://leetcode.com" target="_blank" class="ext-link">
+          <span class="link-icon">⚙️</span>
+          <span>LeetCode – Practice Algorithms &amp; Data Structures</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (Task 1) ===== -->
+  <footer class="footer">
+    <p>Created by <strong>Umut ILHAN</strong> &nbsp;|&nbsp; <span id="footer-date"></span></p>
+    <!-- Task 18: Go to top link with .right class -->
+    <a href="#wrapper" class="right go-top">↑ go to the top of the page</a>
+    <div class="clearfix"></div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // --- Task 1: Insert today's date in footer ---
+    document.getElementById('footer-date').textContent = new Date().toLocaleDateString('en-GB');
+
+    // --- Task 21: Dark / Light mode toggle ---
+    function setDark() {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    }
+
+    function setLight() {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+  </script>
+
+</body>
+</html>

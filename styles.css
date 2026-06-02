@@ -1,0 +1,511 @@
+/* ================================================================
+   styles.css — CS World Main Stylesheet
+   Covers: Tasks 10, 11, 12, 13, 14, 15, 16, 17, 18
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   1. CSS VARIABLES & RESET
+   ---------------------------------------------------------------- */
+:root {
+  --bg:         #0d0f14;
+  --bg2:        #141720;
+  --bg3:        #1c2030;
+  --accent:     #00e5ff;
+  --accent2:    #ff4081;
+  --text:       #e0e6f0;
+  --text-muted: #7a8499;
+  --heading:    #ffffff;        /* Task 11: header font color */
+  --nav-bg:     rgba(13,15,20,0.95);
+  --border:     rgba(0,229,255,0.2);
+  --font-mono:  'JetBrains Mono', monospace;
+  --font-main:  'Syne', sans-serif;
+  --radius:     8px;
+  --shadow:     0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* Task 21: Light mode overrides */
+body.light-mode {
+  --bg:         #f4f6fb;
+  --bg2:        #ffffff;
+  --bg3:        #eaecf2;
+  --text:       #1a1d26;
+  --text-muted: #5a6278;
+  --heading:    #0d0f14;
+  --nav-bg:     rgba(244,246,251,0.95);
+  --border:     rgba(0,120,200,0.25);
+  --accent:     #0066cc;
+  --accent2:    #e91e63;
+}
+
+/* Task 21: Dark mode (default, but explicit class too) */
+body.dark-mode {
+  --bg:         #0d0f14;
+  --bg2:        #141720;
+  --bg3:        #1c2030;
+  --text:       #e0e6f0;
+  --text-muted: #7a8499;
+  --heading:    #ffffff;
+  --nav-bg:     rgba(13,15,20,0.95);
+  --border:     rgba(0,229,255,0.2);
+  --accent:     #00e5ff;
+  --accent2:    #ff4081;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Task 11: Background color of the page */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ----------------------------------------------------------------
+   2. TYPOGRAPHY
+   ---------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-main);
+  /* Task 11: Color of header fonts */
+  color: var(--heading);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+p {
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* ----------------------------------------------------------------
+   3. NAVIGATION
+   ---------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.9rem 2.5rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-right: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.4rem;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  transition: color 0.25s, background 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: rgba(0,229,255,0.07);
+}
+
+/* Task 12: .active class — current page indicator */
+.nav-links a.active {
+  color: var(--accent);
+  background: rgba(0,229,255,0.13);
+  border: 1px solid rgba(0,229,255,0.3);
+}
+
+/* ----------------------------------------------------------------
+   4. THEME BUTTONS (Task 21)
+   ---------------------------------------------------------------- */
+.theme-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-theme {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-theme:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ----------------------------------------------------------------
+   5. HERO SECTION
+   ---------------------------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 2.5rem 4rem;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, #0f1520 100%);
+  border-bottom: 1px solid var(--border);
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.hero-art {
+  flex-shrink: 0;
+}
+
+.code-block {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.kw  { color: #c792ea; }
+.fn  { color: #82aaff; }
+.str { color: #c3e88d; }
+
+/* ----------------------------------------------------------------
+   6. PAGE HERO (subpages)
+   ---------------------------------------------------------------- */
+.page-hero {
+  padding: 3.5rem 2.5rem 2.5rem;
+  background: linear-gradient(135deg, var(--bg2), var(--bg));
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.page-sub {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+/* ----------------------------------------------------------------
+   7. CONTAINER & SECTIONS
+   ---------------------------------------------------------------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.section {
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  color: var(--heading);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.sub-title {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 1.5rem 0 0.8rem;
+}
+
+/* ----------------------------------------------------------------
+   8. IMAGE — .right class (Task 13) + hover effects (Task 14)
+   ---------------------------------------------------------------- */
+
+/* Task 13: .right class — float image to the right */
+.right {
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Image base styling */
+img {
+  border-radius: var(--radius);
+  display: block;
+  max-width: 100%;
+}
+
+/* Task 14: hover pseudo-class — opacity + cursor change */
+.img-hover {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  cursor: default;
+}
+
+.img-hover:hover {
+  opacity: 0.65;           /* Task 14: opacity change on hover */
+  cursor: zoom-in;         /* Task 14: cursor shape change */
+  transform: scale(1.02);
+}
+
+/* ----------------------------------------------------------------
+   9. EXTERNAL LINKS
+   ---------------------------------------------------------------- */
+.ext-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.ext-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  background: var(--bg2);
+  transition: border-color 0.25s, color 0.25s, transform 0.2s;
+  font-weight: 600;
+}
+
+.ext-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.link-icon {
+  font-size: 1.3rem;
+}
+
+.inline-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------
+   10. NUMBERED LIST (Task 6)
+   ---------------------------------------------------------------- */
+.cs-list {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.cs-list li {
+  color: var(--text);
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* ----------------------------------------------------------------
+   11. TABLE (Tasks 7, 16)
+   ---------------------------------------------------------------- */
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  /* Task 16: 5px colorful border around entire table */
+  border: 5px solid var(--accent2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cs-table th,
+.cs-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  /* Task 16: black frame 2px for cells */
+  border: 2px solid #000000;
+}
+
+.cs-table thead th {
+  background: var(--bg3);
+  color: var(--heading);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.cs-table tbody tr:nth-child(even) {
+  background: var(--bg2);
+}
+
+.cs-table tbody tr:nth-child(odd) {
+  background: var(--bg);
+}
+
+.cs-table tbody tr:hover {
+  background: rgba(0,229,255,0.06);
+}
+
+/* Merged header cell styling */
+.merged-header {
+  background: var(--accent2) !important;
+  color: #fff !important;
+  text-align: center;
+}
+
+.merged-cell {
+  background: rgba(0,229,255,0.1);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+/* ----------------------------------------------------------------
+   12. PSEUDO-ELEMENT first-letter (Task 15)
+   ---------------------------------------------------------------- */
+/* Applied to all paragraphs inside subpage sections */
+.section p::first-letter {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  float: left;
+  line-height: 1;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+  font-family: var(--font-main);
+}
+
+/* ----------------------------------------------------------------
+   13. GO TO TOP (Task 18) — uses .right float class above
+   ---------------------------------------------------------------- */
+.go-top {
+  display: inline-block;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.go-top:hover {
+  color: var(--accent2);
+  border-color: var(--accent2);
+}
+
+/* ----------------------------------------------------------------
+   14. FOOTER (Task 1)
+   ---------------------------------------------------------------- */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer strong {
+  color: var(--accent);
+}
+
+/* ----------------------------------------------------------------
+   15. RESPONSIVE — Task 17: hide table on < 600px
+   ---------------------------------------------------------------- */
+@media (max-width: 600px) {
+  /* Task 17: Table not displayed on small screens */
+  .table-section {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .theme-btns {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 2rem 1.2rem;
+  }
+}
