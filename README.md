@@ -58,8 +58,7 @@ No build tools or dependencies needed.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cs-world.git
-   ```
+   git clone (https://github.com/umutilhann/Web-Services-Design.git)
 2. Open `index.html` in your browser.
 
 > All pages link to each other via the navigation bar. Internet connection is required for Google Fonts and Unsplash images.
